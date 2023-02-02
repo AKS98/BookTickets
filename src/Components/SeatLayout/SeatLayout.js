@@ -124,6 +124,8 @@ const MovieTheter = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
 `;
 const ButtonWrapper = styled.div`
   margin: 2rem 0;
