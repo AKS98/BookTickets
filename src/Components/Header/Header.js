@@ -14,7 +14,10 @@ export default Header;
 const HeaderContainer = styled.div`
   width: 100%;
   height: 10vh;
-  background-color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
   text-align: center;
-  color: white;
+  color: #000;
 `;
