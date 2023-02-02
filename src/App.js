@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Header from "./Components/Header/Header";
+import HomePage from "./Components/HomePage/HomePage";
+import SeatLayout from "./Components/SeatLayout/SeatLayout";
+import { MovieContext } from "./Context/MovieContext";
 
 function App() {
+  const [movieBooked, setMovieBooked] = useState({});
+  // Css in index.css
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MovieContext.Provider
+        value={{ movieBooked, setMovieBooked }}
+      >
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage/>}/>
+          <Route path="/movie" element={<SeatLayout/>}/>
+          <Route path="*" element={<h1>404 Not Found</h1>}/>
+
+        </Routes>
+
+      </MovieContext.Provider>
     </div>
   );
 }
