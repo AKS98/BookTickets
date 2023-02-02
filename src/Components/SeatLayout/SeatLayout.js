@@ -30,7 +30,6 @@ const SeatLayout = () => {
     }
   };
   const handleSeatBooking = () => {
-    console.log(movieBooked)
     let booking = movieBooked || {};
 
     if (booking?.[movieName]) {
@@ -43,8 +42,6 @@ const SeatLayout = () => {
       booking[movieName] = {};
       movieBooked[movieName][movieDate] = [...selectSeat];
     }
-    debugger;
-    console.log(booking);
     setMovieBooked({ ...booking });
     // API Post Call to happen here and take to confirmation page
     navigate("/");

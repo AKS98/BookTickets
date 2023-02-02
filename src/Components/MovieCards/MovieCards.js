@@ -12,17 +12,19 @@ const MovieCards = ({ name, dates, imgSrc }) => {
     <CardHolder>
       <MovieTitle>
         <img src={imgSrc} alt="movieImage" />
+        <MovieDetail>
         <h1>{name}</h1>
+          <DateHolder>
+            {dates?.map((item) => {
+              return (
+                <DateButton onClick={() => handleMovieClick(item)}>
+                  {item}
+                </DateButton>
+              );
+            })}
+          </DateHolder>
+        </MovieDetail>
       </MovieTitle>
-      <DateHolder>
-        {dates?.map((item) => {
-          return (
-            <DateButton onClick={() => handleMovieClick(item)}>
-              {item}
-            </DateButton>
-          );
-        })}
-      </DateHolder>
     </CardHolder>
   );
 };
@@ -39,11 +41,9 @@ const DateButton = styled.div`
 `;
 const CardHolder = styled.div`
   h1 {
-    margin-bottom: 1rem;
-    margin-left: 2rem;
+    margin-left: 1.5rem;
   }
   margin-left: 2rem;
-  padding-top: 2rem;
   img {
     width: 15rem;
     object-fit: cover;
@@ -56,8 +56,11 @@ const DateHolder = styled.div`
   gap: 1rem;
   padding: 1rem 1rem;
 `;
-const MovieTitle= styled.div`
-display: flex;
-justify-content: flex-start;
-align-items: center;
+const MovieTitle = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`;
+const MovieDetail= styled.div`
+
 `;

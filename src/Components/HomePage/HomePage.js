@@ -25,7 +25,7 @@ const MovieCardHolder = styled.div`
   background-color: white;
   border: solid 1px black;
   padding: 1rem 0;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
   &: hover {
     background-color: --var(color-bg);
   }
