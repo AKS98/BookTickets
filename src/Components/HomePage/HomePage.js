@@ -9,7 +9,7 @@ const HomePage = () => {
       {movieDetailsArr.map((item) => {
         return (
           <MovieCardHolder className="movieCard-holder">
-            <MovieCards name={item.name} dates={item.dates} />
+            <MovieCards name={item.name} dates={item.dates} imgSrc={item.img} />
           </MovieCardHolder>
         );
       })}
@@ -25,6 +25,7 @@ const MovieCardHolder = styled.div`
   background-color: white;
   border: solid 1px black;
   padding: 1rem 0;
+  margin-bottom: 1rem;
   &: hover {
     background-color: --var(color-bg);
   }

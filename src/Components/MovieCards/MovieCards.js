@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-const MovieCards = ({ name, dates }) => {
+const MovieCards = ({ name, dates, imgSrc }) => {
   const navigate = useNavigate();
   const handleMovieClick = (date) => {
     // To Add Date and Movie to SearchParam and navigate to next page
@@ -10,7 +10,10 @@ const MovieCards = ({ name, dates }) => {
   };
   return (
     <CardHolder>
-      <h1>{name}</h1>
+      <MovieTitle>
+        <img src={imgSrc} alt="movieImage" />
+        <h1>{name}</h1>
+      </MovieTitle>
       <DateHolder>
         {dates?.map((item) => {
           return (
@@ -35,15 +38,26 @@ const DateButton = styled.div`
   border-radius: 2rem;
 `;
 const CardHolder = styled.div`
-h1 {
+  h1 {
     margin-bottom: 1rem;
     margin-left: 2rem;
-}`;
+  }
+  margin-left: 2rem;
+  padding-top: 2rem;
+  img {
+    width: 15rem;
+    object-fit: cover;
+  }
+`;
 const DateHolder = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 1rem;
   padding: 1rem 1rem;
-
+`;
+const MovieTitle= styled.div`
+display: flex;
+justify-content: flex-start;
+align-items: center;
 `;
